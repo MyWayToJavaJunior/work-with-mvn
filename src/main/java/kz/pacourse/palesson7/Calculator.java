@@ -17,7 +17,7 @@ public class Calculator {
      */
     public void add(final int ... params) {
         int addResult = params[0];
-        for (int i = 1; i < params.length - 1; i++) {
+        for (int i = 1; i < params.length; i++) {
             addResult += params[i];
         }
         result += addResult;
@@ -30,7 +30,7 @@ public class Calculator {
      */
     public void sub(final int ... params) {
         int subResult = params[0];
-        for (int i = 1; i < params.length - 1; i++) {
+        for (int i = 1; i < params.length; i++) {
             subResult -= params[i];
         }
         result += subResult;
@@ -43,7 +43,7 @@ public class Calculator {
      */
     public void mult(final int ... params) {
         int multResult = params[0];
-        for (int i = 1; i < params.length - 1; i++) {
+        for (int i = 1; i < params.length; i++) {
             multResult *= params[i];
         }
         result += multResult;
@@ -56,7 +56,7 @@ public class Calculator {
      */
     public void div(final int ... params) {
         int divResult = params[0];
-        for (int i = 1; i < params.length - 1; i++) {
+        for (int i = 1; i < params.length; i++) {
             divResult /= params[i];
         }
         result += divResult;
