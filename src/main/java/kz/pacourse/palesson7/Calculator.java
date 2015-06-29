@@ -8,13 +8,14 @@ public class Calculator {
      * хранит результат вычислений
      */
     private int result;
+    private static final int VALUE_FOR_CLEAR_RESULT = 0;
 
     /**
      * ¬ыполн€етс€ суммирование вход€щего массива аргументов,
      * результат сохран€етс€ в result суммиру€сь с его текущим значением
      * @param params вход€щий массив аргументов
      */
-    public void add(int ... params) {
+    public void add(final int ... params) {
         int addResult = params[0];
         for (int i = 1; i < params.length - 1; i++) {
             addResult += params[i];
@@ -27,7 +28,7 @@ public class Calculator {
      * результат сохран€етс€ в result суммиру€сь с его текущим значением
      * @param params вход€щий массив аргументов
      */
-    public void sub(int ... params) {
+    public void sub(final int ... params) {
         int subResult = params[0];
         for (int i = 1; i < params.length - 1; i++) {
             subResult -= params[i];
@@ -40,7 +41,7 @@ public class Calculator {
      * результат сохран€етс€ в result суммиру€сь с его текущим значением
      * @param params вход€щий массив аргументов
      */
-    public void mult(int ... params) {
+    public void mult(final int ... params) {
         int multResult = params[0];
         for (int i = 1; i < params.length - 1; i++) {
             multResult *= params[i];
@@ -53,7 +54,7 @@ public class Calculator {
      * результат сохран€етс€ в result суммиру€сь с его текущим значением
      * @param params вход€щий массив аргументов
      */
-    public void div(int ... params) {
+    public void div(final int ... params) {
         int divResult = params[0];
         for (int i = 1; i < params.length - 1; i++) {
             divResult /= params[i];
@@ -73,6 +74,6 @@ public class Calculator {
      * ќбнул€ет содержимое пол€ result
      */
     public void clearResult() {
-        result = 0;
+        result = VALUE_FOR_CLEAR_RESULT;
     }
 }
