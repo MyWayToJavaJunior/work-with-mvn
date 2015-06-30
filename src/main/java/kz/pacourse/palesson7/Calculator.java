@@ -8,6 +8,9 @@ public class Calculator {
      * хранит результат вычислений
      */
     private int result;
+    /**
+     * хранит нулевое значение
+     */
     private static final int VALUE_FOR_CLEAR_RESULT = 0;
 
     /**
