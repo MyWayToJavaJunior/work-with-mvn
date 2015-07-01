@@ -57,16 +57,37 @@ public class Calculator {
      * результат сохраняется в result суммируясь с его текущим значением
      * @param params входящий массив аргументов
      */
-    public void div(final int ... params) {
-        int divResult = params[0];
-        for (int i = 1; i < params.length; i++) {
-            divResult /= params[i];
+    public void div(final int ... params) throws UserException{
+        if (!isParamsContainsZero(params)) {
+            int divResult = params[0];
+            for (int i = 1; i < params.length; i++) {
+                divResult /= params[i];
+            }
+            result += divResult;
         }
-        result += divResult;
     }
 
     /**
-     *
+     * Проверка на наличие нулей во входящем массиве
+     * @param params входщий массив
+     * @return возвращает false если нулей
+     * во входящем массиве нет
+     * @throws UserException проброс ошибки
+     * с сообщением о наличии нулей в массиве
+     */
+    public boolean isParamsContainsZero(final int ... params) throws UserException {
+        boolean result = false;
+        for (int p : params)
+        {
+            if (p == 0) {
+                throw new UserException("Can't do Divide with 0");
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Получить текущее состояние поля result
      * @return возвращает содержимое поля result
      */
     public int getResult() {
