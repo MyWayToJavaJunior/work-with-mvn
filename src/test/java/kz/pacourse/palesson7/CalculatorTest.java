@@ -81,16 +81,6 @@ public class CalculatorTest {
     }
 
     /**
-     * Проверка на выброс ошибки при делении с нулями
-     * @throws UserException выбрасывается пользовательская
-     * ошибка с сообщением соответсвующего содержания
-     */
-    @Test(expected = UserException.class)
-    public void divException() throws UserException {
-        calculator.div(0);
-    }
-
-    /**
      * Проверка метода обнуления поля result
      * используется изменение значения поля result методом умножения
      * @throws Exception выбрасывается при несоответсвии ожидаемому значению
@@ -106,5 +96,15 @@ public class CalculatorTest {
             actualResultValue = calculator.getResult();
             assertEquals(CLEAR_RESULT_VALUE, actualResultValue);
         }
+    }
+
+    /**
+     * Проверка на выброс ошибки при делении с нулями
+     * @throws UserException выбрасывается пользовательская
+     * ошибка с сообщением соответсвующего содержания
+     */
+    @Test(expected = UserException.class)
+    public void divException() throws UserException {
+        calculator.div(0);
     }
 }

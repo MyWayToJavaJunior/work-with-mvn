@@ -18,14 +18,14 @@ public class InteractRunner {
                 String first = reader.next();
                 System.out.println("Enter second arg");
                 String second = reader.next();
-                int firstInt;
-                int secondInt;
+                int firstInt = 0;
+                int secondInt = 0;
                 try {
                     firstInt = Integer.valueOf(first);
                     secondInt = Integer.valueOf(second);
                 } catch (NumberFormatException e) {
                     System.out.println("Some args not int");
-                    continue;
+                    System.exit(0);
                 }
                 calc.add(firstInt, secondInt);
                 calc.sub(firstInt, secondInt);
@@ -34,6 +34,7 @@ public class InteractRunner {
                     calc.div(firstInt, secondInt);
                 } catch (UserException e) {
                     System.out.println(e.getMessage());
+                    System.exit(0);
                 }
                 System.out.println("Result: " + calc.getResult());
                 calc.clearResult();

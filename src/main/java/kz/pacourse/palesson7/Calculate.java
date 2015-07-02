@@ -10,8 +10,8 @@ package kz.pacourse.palesson7;
 public class Calculate {
     public static void main(String[] args) {
         System.out.println("Calculated .....");
-        if (!(args.length > 0)) try {
-            throw new UserException("need two arguments at start program");
+        try {
+            Calculate.argsEmptyThrowsException(args);
         } catch (UserException e) {
             System.out.println(e.getMessage());
             System.exit(0);
@@ -25,15 +25,25 @@ public class Calculate {
         System.out.println(first + " + " + second + " = " + summAdd);
         System.out.println(first + " - " + second + " = " + summSub);
         System.out.println(first + " * " + second + " = " + summMult);
-        if (first == 0 || second == 0) {
-            try {
-                throw new UserException("Can't do Divide with 0");
-            } catch (UserException e) {
-                System.out.println(e.getMessage());
-            }
-        } else {
-            int summDiv = first / second;
-            System.out.println(first + " / " + second + " = " + summDiv);
+
+        try {
+            Calculate.argsContainZeroThrowsException(args);
+        } catch (UserException e) {
+            System.out.println(e.getMessage());
+            System.exit(0);
         }
+
+        int summDiv = first / second;
+        System.out.println(first + " / " + second + " = " + summDiv);
+    }
+
+    public static void argsEmptyThrowsException(String[] args) throws UserException {
+        if (args.length < 2)
+            throw new UserException("need two arguments at start program");
+    }
+
+    public static void argsContainZeroThrowsException(String[] args) throws UserException {
+        if (args[0].equals("0") || args[1].equals("0"))
+            throw new UserException("Can't do Divide with 0");
     }
 }

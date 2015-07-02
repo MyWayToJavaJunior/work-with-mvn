@@ -1,7 +1,7 @@
 package kz.pacourse.palesson7;
 
 /**
- * Класс реализует свой класс ошибок
+ * Реализует свой класс исключений
  * наследуется от Exception
  */
 public class UserException extends Exception{
