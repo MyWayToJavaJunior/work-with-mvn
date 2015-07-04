@@ -11,18 +11,18 @@ public class CalculatorTest {
     /**
      * Обьявление и инициализация переменных используемых для проверки
      */
-    final static int INPUT_FIRST_VALUE = -2;
-    final static int INPUT_SECOND_VALUE = 6;
-    final static int INPUT_THIRD_VALUE = -9;
+    final static int FIRST_INPUT_VALUE = -2;
+    final static int SECOND_INPUT_VALUE = 6;
+    final static int THIRD_INPUT_VALUE = -9;
     final static int CLEAR_RESULT_VALUE = 0;
     final static int EXPECTED_RESULT_ADD_VALUE =
-            INPUT_FIRST_VALUE + INPUT_SECOND_VALUE + INPUT_THIRD_VALUE;
+            FIRST_INPUT_VALUE + SECOND_INPUT_VALUE + THIRD_INPUT_VALUE;
     final static int EXPECTED_RESULT_SUB_VALUE =
-            INPUT_FIRST_VALUE - INPUT_SECOND_VALUE - INPUT_THIRD_VALUE;
+            FIRST_INPUT_VALUE - SECOND_INPUT_VALUE - THIRD_INPUT_VALUE;
     final static int EXPECTED_RESULT_MULT_VALUE =
-            INPUT_FIRST_VALUE * INPUT_SECOND_VALUE * INPUT_THIRD_VALUE;
+            FIRST_INPUT_VALUE * SECOND_INPUT_VALUE * THIRD_INPUT_VALUE;
     final static int EXPECTED_RESULT_DIV_VALUE =
-            INPUT_FIRST_VALUE / INPUT_SECOND_VALUE / INPUT_THIRD_VALUE;
+            FIRST_INPUT_VALUE / SECOND_INPUT_VALUE / THIRD_INPUT_VALUE;
     /**
      * Инициализация проверяемого класса
      */
@@ -35,7 +35,7 @@ public class CalculatorTest {
      */
     @Test
     public void testAdd() throws Exception {
-        calculator.add(INPUT_FIRST_VALUE, INPUT_SECOND_VALUE, INPUT_THIRD_VALUE);
+        calculator.add(FIRST_INPUT_VALUE, SECOND_INPUT_VALUE, THIRD_INPUT_VALUE);
         int actualAddValue = calculator.getResult();
         assertEquals(EXPECTED_RESULT_ADD_VALUE, actualAddValue);
         calculator.clearResult();
@@ -48,7 +48,7 @@ public class CalculatorTest {
      */
     @Test
     public void testSub() throws Exception {
-        calculator.sub(INPUT_FIRST_VALUE, INPUT_SECOND_VALUE, INPUT_THIRD_VALUE);
+        calculator.sub(FIRST_INPUT_VALUE, SECOND_INPUT_VALUE, THIRD_INPUT_VALUE);
         int actualSubValue = calculator.getResult();
         assertEquals(EXPECTED_RESULT_SUB_VALUE, actualSubValue);
         calculator.clearResult();
@@ -61,7 +61,7 @@ public class CalculatorTest {
      */
     @Test
     public void testMult() throws Exception {
-        calculator.mult(INPUT_FIRST_VALUE, INPUT_SECOND_VALUE, INPUT_THIRD_VALUE);
+        calculator.mult(FIRST_INPUT_VALUE, SECOND_INPUT_VALUE, THIRD_INPUT_VALUE);
         int actualMultValue = calculator.getResult();
         assertEquals(EXPECTED_RESULT_MULT_VALUE, actualMultValue);
         calculator.clearResult();
@@ -74,7 +74,7 @@ public class CalculatorTest {
      */
     @Test
     public void testDiv() throws Exception {
-        calculator.div(INPUT_FIRST_VALUE, INPUT_SECOND_VALUE, INPUT_THIRD_VALUE);
+        calculator.div(FIRST_INPUT_VALUE, SECOND_INPUT_VALUE, THIRD_INPUT_VALUE);
         int actualDivValue = calculator.getResult();
         assertEquals(EXPECTED_RESULT_DIV_VALUE, actualDivValue);
         calculator.clearResult();
@@ -89,7 +89,7 @@ public class CalculatorTest {
      */
     @Test
     public void testClearResult() throws Exception {
-        calculator.add(INPUT_FIRST_VALUE, INPUT_SECOND_VALUE, INPUT_THIRD_VALUE);
+        calculator.add(FIRST_INPUT_VALUE, SECOND_INPUT_VALUE, THIRD_INPUT_VALUE);
         int actualResultValue = calculator.getResult();
         if (actualResultValue != CLEAR_RESULT_VALUE) {
             calculator.clearResult();
@@ -105,6 +105,6 @@ public class CalculatorTest {
      */
     @Test(expected = UserException.class)
     public void divException() throws UserException {
-        calculator.div(0);
+        calculator.div(1,0);
     }
 }

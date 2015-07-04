@@ -64,7 +64,7 @@ public class Calculator {
                 divResult /= params[i];
             }
             result += divResult;
-        }
+        } else throw new UserException("Can't do Divide with 0");
     }
 
     /**
@@ -72,16 +72,12 @@ public class Calculator {
      * @param params входщий массив
      * @return возвращает false если нулей
      * во входящем массиве нет
-     * @throws UserException проброс ошибки
-     * с сообщением о наличии нулей в массиве
      */
-    public boolean isParamsContainsZero(final int ... params) throws UserException {
+    public boolean isParamsContainsZero(final int ... params) {
         boolean result = false;
-        for (int p : params)
-        {
-            if (p == 0) {
-                throw new UserException("Can't do Divide with 0");
-            }
+        for (int i = 1; i < params.length; i++) {
+            if (params[i] == 0)
+                result = true;
         }
         return result;
     }

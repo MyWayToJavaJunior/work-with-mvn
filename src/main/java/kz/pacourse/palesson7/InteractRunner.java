@@ -28,16 +28,24 @@ public class InteractRunner {
                     System.exit(0);
                 }
                 calc.add(firstInt, secondInt);
+                System.out.println("After Add: " +calc.getResult());
                 calc.sub(firstInt, secondInt);
+                System.out.println("After Sub: " +calc.getResult());
                 calc.mult(firstInt, secondInt);
+                System.out.println("After Mult: " +calc.getResult());
                 try {
                     calc.div(firstInt, secondInt);
+                    System.out.println("After Div: " +calc.getResult());
                 } catch (UserException e) {
                     System.out.println(e.getMessage());
-                    System.exit(0);
                 }
+                System.out.println("**********************************");
+                System.out.println("Total Result: " + calc.getResult());
+                System.out.println("**********************************");
+                System.out.println("Clear Result? yes/no");
+                if ("yes".equals(reader.next()))
+                    calc.clearResult();
                 System.out.println("Result: " + calc.getResult());
-                calc.clearResult();
                 System.out.println("Exit? yes/no");
                 exit = reader.next();
             }

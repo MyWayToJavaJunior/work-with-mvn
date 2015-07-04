@@ -43,7 +43,7 @@ public class Calculate {
     }
 
     public static void argsContainZeroThrowsException(String[] args) throws UserException {
-        if (args[0].equals("0") || args[1].equals("0"))
+        if (args[1].equals("0"))
             throw new UserException("Can't do Divide with 0");
     }
 }
