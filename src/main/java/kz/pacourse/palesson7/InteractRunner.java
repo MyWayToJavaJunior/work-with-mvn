@@ -1,5 +1,6 @@
 package kz.pacourse.palesson7;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -18,26 +19,39 @@ public class InteractRunner {
                 String first = reader.next();
                 System.out.println("Enter second arg");
                 String second = reader.next();
-                int firstInt = 0;
-                int secondInt = 0;
+                int firstInt;
+                int secondInt;
                 try {
                     firstInt = Integer.valueOf(first);
                     secondInt = Integer.valueOf(second);
                 } catch (NumberFormatException e) {
                     System.out.println("Some args not int");
-                    System.exit(0);
+                    continue;
                 }
-                calc.add(firstInt, secondInt);
-                System.out.println("After Add: " +calc.getResult());
-                calc.sub(firstInt, secondInt);
-                System.out.println("After Sub: " +calc.getResult());
-                calc.mult(firstInt, secondInt);
-                System.out.println("After Mult: " +calc.getResult());
+                System.out.println("1 add / 2 sub / 3 mult / 4 div");
+                int userChoice = 0;
                 try {
-                    calc.div(firstInt, secondInt);
-                    System.out.println("After Div: " +calc.getResult());
-                } catch (UserException e) {
-                    System.out.println(e.getMessage());
+                    userChoice = reader.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("it is not a number");
+                }
+                switch (userChoice) {
+                    case 1:     calc.add(firstInt, secondInt);
+                                System.out.println("After Add: " +calc.getResult());
+                                break;
+                    case 2:     calc.sub(firstInt, secondInt);
+                                System.out.println("After Sub: " +calc.getResult());
+                                break;
+                    case 3:     calc.mult(firstInt, secondInt);
+                                System.out.println("After Mult: " +calc.getResult());
+                                break;
+                    case 4:     try {
+                                    calc.div(firstInt, secondInt);
+                                    System.out.println("After Div: " +calc.getResult());
+                                } catch (UserException e) {
+                                    System.out.println(e.getMessage());
+                                }
+                    default:    break;
                 }
                 System.out.println("**********************************");
                 System.out.println("Total Result: " + calc.getResult());
