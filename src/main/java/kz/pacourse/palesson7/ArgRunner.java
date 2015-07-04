@@ -39,6 +39,15 @@ public class ArgRunner {
         System.out.println("*********************");
     }
 
+    /**
+     * Конвертирует массив Строк в массив Чисел
+     * искючая не числа, проверка реализована
+     * через перехват исключения, с пустым блоком
+     * Catch.
+     * @param args входной массив строк
+     * @return возвращает массив чисел или null
+     * если чисел в массиве меньше двух
+     */
     private static int[] getIntFromStringArgs(String[] args) {
         int[] nullResult = new int[args.length];
         int realCountArgs = 0;
